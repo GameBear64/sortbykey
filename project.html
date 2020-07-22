@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sorting By Key</title>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="s" placeholder="s (string)"> <br>
+            <input type="text" id="t" placeholder="t (key)"> <br> <br>
+            <input type="button" value="Result" onclick="sortByKey(document.getElementById('s').value , document.getElementById('t').value )">
+        </form>
+        <p id="result"></p>
+        <script>
+            function sortByKey(string, key) {
+                let cashe = {}, result = ""
+
+                string.split("").forEach(element => {
+                    cashe[element] ? cashe[element] ++ : cashe[element] = 1
+                });
+
+                key.split("").forEach(element => {
+                    if (!cashe[element]) return;
+                    for (let i = 0; i < cashe[element]; i++) {
+                        result += element
+                    }
+                });
+                document.getElementById('result').textContent = result
+            } 
+        </script>
+    </body>
+</html>
