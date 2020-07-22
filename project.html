@@ -2,15 +2,52 @@
 <html lang="en">
     <head>
         <title>Sorting By Key</title>
+        <style>
+            body {
+                zoom: 200%
+            }
+            #example {
+                margin-top: 0; 
+                padding-left: 5px; 
+                border: 3px #df5252; 
+                border-style: none none none solid; 
+            }
+            h3 {
+                cursor: pointer;
+                margin-bottom: 0;
+            }
+            form {
+                margin-top: 20px;
+            }
+        </style>
     </head>
+
     <body>
+        <h1>Sort By String</h1>
+        <p>Sort the letters in the string s (string) by the order they occur in the string t (key).</p>
+
+        <h3 onclick="yes()">Example</h3> 
+        <p id="example" style="display: none;"> 
+            String: "ababababababababababababggababbabbabababbababbazzzzzzzmmgb"
+            <br> 
+            Key: "baz"
+            <br><br> 
+            Output: "bbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaazzzzzzz"
+        </p>
+
         <form>
             <input type="text" id="s" placeholder="s (string)"> <br>
             <input type="text" id="t" placeholder="t (key)"> <br> <br>
-            <input type="button" value="Result" onclick="sortByKey(document.getElementById('s').value , document.getElementById('t').value )">
+            <input type="button" value="Result" onclick="sortByKey(document.getElementById('s').value, document.getElementById('t').value)">
         </form>
         <p id="result"></p>
+        
         <script>
+            function yes() {
+                document.getElementById('example').style.display == "none" ? 
+                document.getElementById('example').style.display = "block" : 
+                document.getElementById('example').style.display = "none"
+            }
             function sortByKey(string, key) {
                 let cashe = {}, result = ""
 
